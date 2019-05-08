@@ -1,0 +1,34 @@
+{
+  "type": "datasource",
+  "name": "File System",
+  "id": "lapnap-fs-datasource",
+
+  "info": {
+    "description": "File System",
+    "author": {
+      "name": "Lapnap Labs"
+    },
+    "keywords": ["files", "csv"],
+    "logos": {
+      "small": "img/fs.svg",
+      "large": "img/fs.svg"
+    },
+    "links": [
+      {"name": "Project site", "url": "https://github.com/ryantxu/grafana-firebase-app"},
+      {
+        "name": "MIT License",
+        "url": "https://github.com/ryantxu/grafana-firebase-app/blob/master/LICENSE"
+      }
+    ],
+    "screenshots": [],
+    "version": "%VERSION%",
+    "updated": "%TODAY%"
+  },
+
+  "includes": [],
+
+  "dependencies": {
+    "grafanaVersion": "6.2.x",
+    "plugins": []
+  }
+}
