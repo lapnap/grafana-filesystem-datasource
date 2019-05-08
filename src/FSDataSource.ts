@@ -15,11 +15,10 @@ export class FSDataSource implements DataSourceApi<FSQuery> {
   // Filled in by grafana plugin system
   id?: number;
 
-  // Filled by constructor
-  // settings?: DataSourceInstanceSettings<FSOptions>;
+  settings?: DataSourceInstanceSettings<FSOptions>;
 
-  constructor(instanceSettings: DataSourceInstanceSettings<FSOptions>) {
-    // this.settings = instanceSettings;
+  constructor(settings: DataSourceInstanceSettings) {
+    this.settings = settings;
   }
 
   // /**
@@ -30,9 +29,13 @@ export class FSDataSource implements DataSourceApi<FSQuery> {
   // }
 
   query(options: DataQueryRequest<FSQuery>): Promise<DataQueryResponse> {
-    // const {url, jsonData} = this.settings;
+    if (!this.settings) {
+      return Promise.reject('no settings');
+    }
 
-    // console.log( "FETCH", options, url, jsonData );
+    const {url, jsonData} = this.settings;
+
+    console.log('FETCH', options, url, jsonData);
 
     return Promise.resolve({data: []});
   }
