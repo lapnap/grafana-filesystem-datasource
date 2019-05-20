@@ -8,34 +8,26 @@ import {
 
 import {FSQuery, FSOptions} from './types';
 
-export class FSDataSource implements DataSourceApi<FSQuery> {
-  // Filled in by grafana plugin system
-  name?: string;
-
-  // Filled in by grafana plugin system
-  id?: number;
-
-  settings?: DataSourceInstanceSettings<FSOptions>;
-
-  constructor(settings: DataSourceInstanceSettings) {
-    this.settings = settings;
+export class FSDataSource extends DataSourceApi<FSQuery, FSOptions> {
+  constructor(instanceSettings: DataSourceInstanceSettings<FSOptions>) {
+    super(instanceSettings);
   }
 
-  // /**
-  //  * Convert a query to a simple text string
-  //  */
-  // getQueryDisplayText(query: FSQuery): string|undefined {
-  //   return `Get Data: ${query.path}`;
-  // }
+  /**
+   * Convert a query to a simple text string
+   */
+  getQueryDisplayText(query: FSQuery) {
+    return `Get Data: ${query.path}`;
+  }
 
   query(options: DataQueryRequest<FSQuery>): Promise<DataQueryResponse> {
-    if (!this.settings) {
-      return Promise.reject('no settings');
-    }
+    // if (!this.settings) {
+    //   return Promise.reject('no settings');
+    // }
 
-    const {url, jsonData} = this.settings;
+    // const {url, jsonData} = this.settings;
 
-    console.log('FETCH', options, url, jsonData);
+    // console.log('FETCH', options, url, jsonData);
 
     return Promise.resolve({data: []});
   }

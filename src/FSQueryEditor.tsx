@@ -3,11 +3,11 @@ import React, {PureComponent} from 'react';
 
 // Types
 import {FSDataSource} from './FSDataSource';
-import {FSQuery} from './types';
+import {FSQuery, FSOptions} from './types';
 
 import {FormLabel, QueryEditorProps} from '@grafana/ui';
 
-type Props = QueryEditorProps<FSDataSource, FSQuery>;
+type Props = QueryEditorProps<FSDataSource, FSQuery, FSOptions>;
 
 interface State {}
 
